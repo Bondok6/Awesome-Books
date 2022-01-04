@@ -32,7 +32,11 @@ const removeBook = function (title) {
 
 // Display Book
 const displayBook = function () {
-  books = JSON.parse(localStorage.getItem('books'));
+  if (!JSON.parse(localStorage.getItem('books'))) {
+    books = [];
+  } else {
+    books = JSON.parse(localStorage.getItem('books'));
+  }
 
   let itemHtml = '';
   books.forEach((book) => {
