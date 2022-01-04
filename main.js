@@ -11,6 +11,7 @@ const addBtn = document.querySelector('form');
 
 const titleInput = document.querySelector('.title-input');
 const authorInput = document.querySelector('.author-input');
+const error = document.querySelector('.error');
 
 // Data Storage
 const storage = function (books) {
@@ -19,9 +20,15 @@ const storage = function (books) {
 
 // Add Book
 const addBook = function (title, author) {
-  const newBook = new Books(title, author);
-  books.push(newBook);
-  storage(books);
+  books.forEach((book) => {
+    if (book.title === title) {
+      error.textContent = 'Sorry, This book is already on the list';
+      return;
+    }
+    const newBook = new Books(title, author);
+    books.push(newBook);
+    storage(books);
+  });
 };
 
 // Remove Book
