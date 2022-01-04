@@ -1,0 +1,36 @@
+/* Simple Normalization */
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+li::after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid #333;
+  margin-block: 2rem;
+}
+
+input {
+  display: block;
+}
