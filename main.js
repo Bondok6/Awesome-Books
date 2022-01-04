@@ -1,8 +1,10 @@
 let books = [];
+let id = 0;
 
-const Books = function (title, author) {
+const Books = function (title, author, id) {
   this.title = title;
   this.author = author;
+  this.id = id;
 };
 
 // Select the Elements
@@ -11,7 +13,6 @@ const addBtn = document.querySelector('form');
 
 const titleInput = document.querySelector('.title-input');
 const authorInput = document.querySelector('.author-input');
-const error = document.querySelector('.error');
 
 // Data Storage
 const storage = function (books) {
@@ -19,21 +20,15 @@ const storage = function (books) {
 };
 
 // Add Book
-const addBook = function (title, author) {
-  books.forEach((book) => {
-    if (book.title === title) {
-      error.textContent = 'Sorry, This book is already on the list';
-      return;
-    }
-    const newBook = new Books(title, author);
-    books.push(newBook);
-    storage(books);
-  });
+const addBook = function (title, author, id) {
+  const newBook = new Books(title, author, id);
+  books.push(newBook);
+  storage(books);
 };
 
 // Remove Book
-const removeBook = function (title) {
-  books = books.filter((book) => book.title !== title);
+const removeBook = function (id) {
+  books = books.filter((book) => book.id !== +id);
   storage(books);
 };
 
@@ -48,12 +43,12 @@ const displayBook = function () {
   let itemHtml = '';
   books.forEach((book) => {
     itemHtml += `
-    <li class="book">
-      <div class="title">${book.title}</div>
-      <div class="author">${book.author}</div>
-      <button type="button" class="remove-btn">Remove</button>
-    </li>
-  `;
+      <li class="book" id="${book.id}">
+        <div class="title">${book.title}</div>
+        <div class="author">${book.author}</div>
+        <button type="button" class="remove-btn">Remove</button>
+      </li>
+    `;
   });
 
   container.innerHTML = itemHtml;
@@ -61,8 +56,8 @@ const displayBook = function () {
   // Remove: when I click on Remove button
   document.querySelectorAll('.remove-btn').forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      const targetTitle = e.target.parentElement.firstChild.nextSibling.textContent;
-      removeBook(targetTitle);
+      const targetId = e.target.parentElement.id;
+      removeBook(targetId);
       e.target.parentElement.remove();
     });
   });
@@ -73,8 +68,10 @@ addBtn.addEventListener('submit', (e) => {
   e.preventDefault();
   const title = titleInput.value;
   const author = authorInput.value;
-  addBook(title, author);
+
+  addBook(title, author, id);
   displayBook();
+  id += 1;
 });
 
 // Display Data: when reload the page
