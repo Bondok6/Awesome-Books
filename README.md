@@ -4,7 +4,7 @@
 
 > ### In this project, I built a basic website that allows users to add/remove books from a list.
 
-<img src="images/mobile-preview.PNG" width="30%" /><img src="images/desktop-preview.PNG" width="70%" />
+<img src="mobile-screenshot.PNG" width="30%" /><img src="desktop-screenshot.PNG" width="70%" />
 
 ## Built With
 

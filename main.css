@@ -14,23 +14,167 @@ html {
 
 body {
   font-size: 20px;
+  font-family: "Comic Sans MS", "Comic Sans", sans-serif;
 }
 
 a {
   text-decoration: none;
 }
 
-li {
-  list-style: none;
+h1,
+h2 {
+  text-align: center;
+  transition: 0.2s;
+  margin-block: 2rem;
+  font-size: 4rem;
+  margin-bottom: 2rem;
 }
 
-li::after {
+h1:hover,
+h2:hover {
+  transform: skewY(2deg) skewX(15deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem #000;
+}
+
+/************** Start  Books Section ************/
+.books-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.books-container {
+  width: 100rem;
+  height: 45rem;
+  border: 3px solid #222;
+  padding-block: 1rem;
+  overflow-y: scroll;
+}
+
+.books-container::-webkit-scrollbar {
+  width: 1.7rem;
+}
+
+.books-container::-webkit-scrollbar-track {
+  background-color: #5555;
+}
+
+.books-container::-webkit-scrollbar-thumb {
+  background-color: #777;
+  border-radius: 2rem;
+}
+
+.books-container::-webkit-scrollbar-track:hover {
+  background-color: #555;
+}
+
+.books-container::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+li:not(:last-child)::after {
   content: "";
   display: block;
   border-bottom: 1px solid #333;
-  margin-block: 2rem;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.book-details {
+  margin-left: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.remove-btn {
+  padding: 0.4rem 1rem;
+  margin-right: 2rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.6rem;
+  background: none;
+  outline: none;
+  border: 2px solid #222;
+  box-shadow: 0.5rem 0.5rem 1rem #333;
+  transform: scale(1.1);
+  transition: 0.4s;
+}
+
+/************** Start  Books Section ************/
+
+/************** Start  Data entry Section ************/
+.data-entry-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.form {
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 input {
   display: block;
+  height: 4rem;
+  padding: 1rem;
+  font-family: inherit;
+  font-size: 2rem;
+  outline: none;
+  border: 2px solid #333;
+  border-radius: 5px;
+}
+
+.add-btn {
+  width: 7rem;
+  height: 4rem;
+  align-self: flex-end;
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 2rem;
+  background: none;
+  outline: none;
+  border: 2px solid #222;
+  box-shadow: 1.5rem 1rem 1rem #333;
+  transform: scale(1.1);
+  transition: 0.4s;
+}
+
+.add-btn:hover,
+.remove-btn:focus,
+.remove-btn:hover {
+  transform: scale(1);
+  background-color: #333;
+  color: #fff;
+}
+
+/************** End  Data entry Section ************/
+
+@media screen and (max-width: 600px) {
+  li {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  input {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .add-btn {
+    align-self: center;
+  }
 }
