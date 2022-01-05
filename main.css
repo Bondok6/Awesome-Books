@@ -21,7 +21,6 @@ a {
   text-decoration: none;
 }
 
-h1,
 h2 {
   text-align: center;
   transition: 0.2s;
@@ -30,15 +29,60 @@ h2 {
   margin-bottom: 2rem;
 }
 
-h1:hover,
 h2:hover {
   transform: skewY(2deg) skewX(15deg) scale(1.1);
   text-shadow: 0.5rem 1rem 2rem #000;
 }
 
-/************** Start  Books Section ************/
+/* ************ Start Header&footer Section ********** */
+header,
+footer {
+  width: 80vw;
+  height: 8vh;
+  border: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 4rem;
+}
+
+.list-item {
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.list-item:not(:last-child) {
+  border-right: 3px solid #000;
+  padding-right: 4rem;
+}
+
+.list-item:hover {
+  text-shadow: 0.5rem 1rem 2rem #000;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 10%;
+}
+
+.navMenu {
+  display: none;
+}
+
+/* ************ End Header&footer Section ********** */
+
+/************** Start Books Section ************/
 .books-section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
@@ -73,7 +117,7 @@ h2:hover {
   background-color: #777;
 }
 
-li {
+.book {
   list-style: none;
   display: flex;
   justify-content: space-between;
@@ -81,7 +125,7 @@ li {
   align-items: center;
 }
 
-li:not(:last-child)::after {
+.book:not(:last-child)::after {
   content: "";
   display: block;
   border-bottom: 1px solid #333;
@@ -122,6 +166,7 @@ li:not(:last-child)::after {
 
 .form {
   width: 50rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -163,6 +208,26 @@ input {
 
 /************** End  Data entry Section ************/
 
+/* ************ Start Contact Section ************ */
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.contact-section p {
+  font-size: 3rem;
+  margin: 2rem;
+}
+
+.contact-section li {
+  font-size: 2.5rem;
+}
+
+/* ************ End Contact Section ************ */
+
 @media screen and (max-width: 600px) {
   li {
     flex-direction: column;
@@ -177,4 +242,9 @@ input {
   .add-btn {
     align-self: center;
   }
+}
+
+/* used in js */
+.hidden {
+  display: none;
 }

@@ -9,30 +9,52 @@
     <link rel="stylesheet" href="main.css">
     <script defer src="main.js"></script>
 
-    <title>Awasome Books</title>
+    <title>Awesome Books</title>
   </head>
 
   <body>
     <main>
-      <h1>All awasome books</h1>
+
+      <header>
+        <h1 class="main-title">Awesome Books</h1>
+        <nav>
+          <ul class="nav-list">
+            <li class="list-item">List</li>
+            <li class="list-item">Add New</li>
+            <li class="list-item">Contact</li>
+          </ul>
+        </nav>
+      </header>
+
 
       <section class="books-section">
-
+        <h2>All awesome books</h2>
         <ul class="books-container"></ul>
-
       </section>
 
-      <section class="data-entry-section">
-
+      <section class="data-entry-section hidden">
         <h2>Add a new book</h2>
-
         <form class="form">
           <input type="text" placeholder="Title" class="title-input" required>
           <input type="text" placeholder="Author" class="author-input" required>
           <button type="submit" class="add-btn">Add</button>
         </form>
-
       </section>
+
+      <section class="contact-section hidden">
+        <h2>Contact Information</h2>
+        <p>Do have any questions or just want to say <q>Hello</q>? <br> You can reach out to us!</p>
+        <ul>
+          <li>Our e-mail: mail@mail.com</li>
+          <li>Our phone number: 0043586534422</li>
+          <li>Our address: Streetname 22, 84503 City, Country</li>
+        </ul>
+      </section>
+
+
+      <footer>
+        <h1 class="main-title">CopyRight &copy; ...</h1>
+      </footer>
 
     </main>
   </body>
