@@ -69,6 +69,9 @@ addBtn.addEventListener("submit", (e) => {
   newBook.addBook();
   Books.displayBook();
   id += 1;
+
+  titleInput.value = "";
+  authorInput.value = "";
 });
 
 // Display Data: when reload the page

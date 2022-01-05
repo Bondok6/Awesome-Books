@@ -91,6 +91,8 @@ li:not(:last-child)::after {
 
 .book-details {
   margin-left: 2rem;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 .remove-btn {
@@ -160,3 +162,19 @@ input {
 }
 
 /************** End  Data entry Section ************/
+
+@media screen and (max-width: 600px) {
+  li {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  input {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .add-btn {
+    align-self: center;
+  }
+}
