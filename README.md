@@ -10,7 +10,7 @@
 
 - HTML - HTML5
 - CSS - CSS3
-- JavaScript
+- JavaScript - OOP
 
 ## Additional tools
 
