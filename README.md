@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Awasome-Books
+# Awesome-Books
 
 > ### In this project, I built a basic website that allows users to add/remove books from a list.
 
@@ -18,7 +18,7 @@
 
 ## Live Demo
 
-[Awasome-Books](https://bondok6.github.io/Awasome-Books/)
+[Awesome-Books](https://bondok6.github.io/Awesome-Books/)
 
 ## Getting Started
 
