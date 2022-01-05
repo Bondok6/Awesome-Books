@@ -4,6 +4,7 @@ const addBtn = document.querySelector("form");
 const titleInput = document.querySelector(".title-input");
 const authorInput = document.querySelector(".author-input");
 
+// Class of Books
 class Books {
   static books = [];
 
@@ -35,8 +36,7 @@ class Books {
     Books.books.forEach((book) => {
       itemHtml += `
       <li class="book" id="${book.id}">
-        <div class="title">${book.title}</div>
-        <div class="author">${book.author}</div>
+        <div class="book-details">${book.title} by ${book.author}</div>
         <button type="button" class="remove-btn">Remove</button>
       </li>
     `;
@@ -68,7 +68,6 @@ addBtn.addEventListener("submit", (e) => {
   const newBook = new Books(id, title, author);
   newBook.addBook();
   Books.displayBook();
-
   id += 1;
 });
 
