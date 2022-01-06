@@ -77,3 +77,30 @@ addBtn.addEventListener('submit', (e) => {
 window.onload = () => {
   Books.displayBook();
 };
+
+// Sections Navigation
+const listNav = document.querySelectorAll('.list-item')[0];
+const addNewNav = document.querySelectorAll('.list-item')[1];
+const contactNav = document.querySelectorAll('.list-item')[2];
+
+const listSection = document.querySelector('.books-section');
+const addNewSection = document.querySelector('.data-entry-section');
+const contactSection = document.querySelector('.contact-section');
+
+listNav.addEventListener('click', () => {
+  addNewSection.classList.add('hidden');
+  contactSection.classList.add('hidden');
+  listSection.classList.remove('hidden');
+});
+
+addNewNav.addEventListener('click', () => {
+  addNewSection.classList.remove('hidden');
+  contactSection.classList.add('hidden');
+  listSection.classList.add('hidden');
+});
+
+contactNav.addEventListener('click', () => {
+  addNewSection.classList.add('hidden');
+  contactSection.classList.remove('hidden');
+  listSection.classList.add('hidden');
+});
