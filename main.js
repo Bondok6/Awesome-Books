@@ -79,9 +79,7 @@ window.onload = () => {
 };
 
 // Sections Navigation
-const listNav = document.querySelectorAll('.list-item')[0];
-const addNewNav = document.querySelectorAll('.list-item')[1];
-const contactNav = document.querySelectorAll('.list-item')[2];
+const [listNav, addNewNav, contactNav] = document.querySelectorAll('.list-item');
 
 const listSection = document.querySelector('.books-section');
 const addNewSection = document.querySelector('.data-entry-section');

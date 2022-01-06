@@ -21,7 +21,8 @@ a {
   text-decoration: none;
 }
 
-h2 {
+h2,
+h3 {
   text-align: center;
   transition: 0.2s;
   margin-block: 2rem;
@@ -229,7 +230,7 @@ input {
 /* ************ End Contact Section ************ */
 
 @media screen and (max-width: 600px) {
-  li {
+  .book {
     flex-direction: column;
     gap: 2rem;
   }
