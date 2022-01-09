@@ -2,7 +2,7 @@
 
 # Awesome-Books
 
-> ### In this project, I built a basic website that allows users to add/remove books from a list.
+> ### In this project, I built a basic website that allows users to add/remove books from a book list.
 
 https://user-images.githubusercontent.com/45231276/148695534-f89a450a-6a6b-4f45-b180-1c27b0161bb7.mp4
 
