@@ -3,10 +3,18 @@ const container = document.querySelector('.books-container');
 const addBtn = document.querySelector('form');
 const titleInput = document.querySelector('.title-input');
 const authorInput = document.querySelector('.author-input');
+const errorMsg = document.querySelector('.error');
+const successMsg = document.querySelector('.success');
+const listSection = document.querySelector('.books-section');
+const addNewSection = document.querySelector('.data-entry-section');
+const contactSection = document.querySelector('.contact-section');
+const [listNav, addNewNav, contactNav] = document.querySelectorAll('.list-item');
 
 // Class of Books
 class Books {
   static books = [];
+
+  id = (`${Date.now()}`).slice(-10);
 
   constructor(id, title, author) {
     this.id = id;
@@ -22,13 +30,15 @@ class Books {
   addBook() {
     Books.books.push(this);
     Books.storage(Books.books);
+    Books.displayBook();
+
+    titleInput.value = '';
+    authorInput.value = '';
   }
 
   // Display Book
   static displayBook() {
-    if (!JSON.parse(localStorage.getItem('books'))) {
-      Books.books = [];
-    } else {
+    if (JSON.parse(localStorage.getItem('books'))) {
       Books.books = JSON.parse(localStorage.getItem('books'));
     }
 
@@ -48,7 +58,7 @@ class Books {
     document.querySelectorAll('.remove-btn').forEach((btn) => {
       btn.addEventListener('click', (e) => {
         const targetId = e.target.parentElement.id;
-        Books.books = Books.books.filter((book) => book.id !== +targetId);
+        Books.books = Books.books.filter((book) => book.id !== targetId);
         Books.storage(Books.books);
         e.target.parentElement.remove();
       });
@@ -56,21 +66,33 @@ class Books {
   }
 }
 
-let id = 0;
+const CheckDuplicate = function (title, author) {
+  const b = Books.books.filter(
+    (book) => title === book.title && author === book.author,
+  );
+  if (b.length !== 0) {
+    errorMsg.classList.remove('hidden');
+    successMsg.classList.add('hidden');
+    return true;
+  }
+  errorMsg.classList.add('hidden');
+  successMsg.classList.remove('hidden');
+  return false;
+};
 
+let id;
 // Add: when I click on Add button
 addBtn.addEventListener('submit', (e) => {
   e.preventDefault();
+
+  id = (`${Date.now()}`).slice(-10);
   const title = titleInput.value;
   const author = authorInput.value;
 
+  if (CheckDuplicate(title, author)) return;
+
   const newBook = new Books(id, title, author);
   newBook.addBook();
-  Books.displayBook();
-  id += 1;
-
-  titleInput.value = '';
-  authorInput.value = '';
 });
 
 // Display Data: when reload the page
@@ -79,12 +101,6 @@ window.onload = () => {
 };
 
 // Sections Navigation
-const [listNav, addNewNav, contactNav] = document.querySelectorAll('.list-item');
-
-const listSection = document.querySelector('.books-section');
-const addNewSection = document.querySelector('.data-entry-section');
-const contactSection = document.querySelector('.contact-section');
-
 listNav.addEventListener('click', () => {
   addNewSection.classList.add('hidden');
   contactSection.classList.add('hidden');
@@ -92,13 +108,13 @@ listNav.addEventListener('click', () => {
 });
 
 addNewNav.addEventListener('click', () => {
-  addNewSection.classList.remove('hidden');
   contactSection.classList.add('hidden');
   listSection.classList.add('hidden');
+  addNewSection.classList.remove('hidden');
 });
 
 contactNav.addEventListener('click', () => {
   addNewSection.classList.add('hidden');
-  contactSection.classList.remove('hidden');
   listSection.classList.add('hidden');
+  contactSection.classList.remove('hidden');
 });

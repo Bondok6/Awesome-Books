@@ -1,5 +1,4 @@
 /* Simple Normalization */
-
 *,
 ::after,
 ::before {
@@ -15,6 +14,10 @@ html {
 body {
   font-size: 20px;
   font-family: "Comic Sans MS", "Comic Sans", sans-serif;
+}
+
+::selection {
+  background-color: #777;
 }
 
 a {
@@ -248,4 +251,21 @@ input {
 /* used in js */
 .hidden {
   display: none;
+}
+
+.error,
+.success {
+  padding: 1rem 2rem;
+  margin-top: 5rem;
+  font-size: 2.5rem;
+}
+
+.error {
+  color: #d8000c;
+  background-color: #ffd2d2;
+}
+
+.success {
+  color: #4f8a10;
+  background-color: #dff2bf;
 }
