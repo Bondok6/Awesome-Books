@@ -14,7 +14,7 @@ const [listNav, addNewNav, contactNav] = document.querySelectorAll('.list-item')
 class Books {
   static books = [];
 
-  id = (`${Date.now()}`).slice(-10);
+  id = `${Date.now()}`.slice(-10);
 
   constructor(id, title, author) {
     this.id = id;
@@ -85,7 +85,7 @@ let id;
 addBtn.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  id = (`${Date.now()}`).slice(-10);
+  id = `${Date.now()}`.slice(-10);
   const title = titleInput.value;
   const author = authorInput.value;
 
