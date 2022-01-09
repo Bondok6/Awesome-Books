@@ -4,7 +4,7 @@
 
 > ### In this project, I built a basic website that allows users to add/remove books from a list.
 
-<img src="mobile-screenshot.PNG" width="30%" /><img src="desktop-screenshot.PNG" width="70%" />
+https://user-images.githubusercontent.com/45231276/148695534-f89a450a-6a6b-4f45-b180-1c27b0161bb7.mp4
 
 ## Built With
 
